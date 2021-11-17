@@ -58,10 +58,10 @@ class ProductsController extends Controller {
 
         $user = User::where('id', $userid)->where('remember_token', $token)->first();
 
-        if($products != null) {
+        if($user != null) {
 
             $products = Products::where('description', 'LIKE', '%'.$params.'%')
-            ->orWhere('title', 'LIKE', '%'. $params .'%')
+            ->orWhere('product_name', 'LIKE', '%'. $params .'%')
             ->get();
 
             if($products != null) {
